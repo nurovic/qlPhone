@@ -1,12 +1,14 @@
-import {Button, View,SafeAreaView, Text} from 'react-native';
+import {Button, SafeAreaView} from 'react-native';
 import React from 'react';
 
-export default function Home({navigation}) {
+export default function Home(navigation: {
+  navigate: (screenName: string) => void;
+}) {
   return (
     <SafeAreaView>
       <Button
         title="Go to Profile"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('Profile')}
       />
     </SafeAreaView>
   );
