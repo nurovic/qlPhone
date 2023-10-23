@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 // import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabNavigator from './navigators/TabNavigator';
 import Login from './screens/Login';
+import ProductDetail from './screens/ProductDetail';
 import {createStackNavigator} from '@react-navigation/stack';
 
 
@@ -22,6 +23,7 @@ function App() {
           options={{headerShown: false}}
         />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );

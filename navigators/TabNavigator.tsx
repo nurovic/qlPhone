@@ -19,10 +19,10 @@ const TabNavigator = () => {
         },
         tabBarIconStyle: {display: 'none'},
       }}>
-      {/* <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Order" component={Order} /> */}
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Order" component={Order} />
       <Tab.Screen name="Products" component={Products} />
-      {/* <Tab.Screen name="Profil" component={Profil} /> */}
+      <Tab.Screen name="Profil" component={Profil} />
     </Tab.Navigator>
   );
 };

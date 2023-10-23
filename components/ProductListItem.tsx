@@ -1,28 +1,38 @@
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 
-const onPress = (id) => {
-  console.log('id')
-  console.log(id)
-}
+const onPress = (id: string) => {
+  console.log('id');
+  console.log(id);
+};
 
-const ProductListItem = ({item}) => {
-  console.log(item);
+const ProductListItem = ({item}: any) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Image
-        style={{height: 180, resizeMode: 'cover', borderRadius: 12, borderRadius: 5}}
-        source={{
-          uri: item.imageUrl,
-        }}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate('ProductDetail', item._id)}>
+        <Image
+          style={{
+            height: 180,
+            resizeMode: 'cover',
+            borderRadius: 12,
+            borderRadius: 5,
+          }}
+          source={{
+            uri: item.imageUrl,
+          }}
+        />
+      </TouchableOpacity>
       <View style={styles.infoContainer}>
         <View>
           <Text>asdasd</Text>
         </View>
         <TouchableOpacity
-        onPress={() => onPress(item._id)}
-        style={styles.button}>
+          onPress={() => onPress(item._id)}
+          style={styles.button}>
           <Text>Add Order</Text>
         </TouchableOpacity>
       </View>
