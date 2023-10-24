@@ -7,17 +7,18 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
-import ProductDetailItem from '../components/ProductDetailItem';
+import ProductDetailItem from '../components/ProductDetail/ProductDetailItem';
+import Reviews from '../components/ProductDetail/Reviews';
 
 export default function ProductDetail() {
   const route = useRoute();
   const id = route.params;
-  console.log(id);
+  console.log(id, 'product detail pages');
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{marginBottom: 52}}>
         <ProductDetailItem />
-        <ProductDetailItem />
+        <Reviews />
       </ScrollView>
 
       <View style={styles.priceCard}>

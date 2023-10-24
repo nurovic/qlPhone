@@ -1,9 +1,9 @@
-import {StyleSheet, Text, Image, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, Image, View} from 'react-native';
 import React from 'react';
 
 export default function ProductDetailItem() {
   return (
-    <View >
+    <View>
       <Image
         style={{
           height: 400,
