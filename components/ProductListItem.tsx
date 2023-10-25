@@ -1,4 +1,6 @@
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useRoute} from '@react-navigation/native';
@@ -11,9 +13,10 @@ const onPress = (id: string) => {
 const ProductListItem = ({item}: any) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('ProductDetail', item._id)}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('ProductDetail', item._id)}
+      style={styles.container}>
+      <View>
         <Image
           style={{
             height: 180,
@@ -25,7 +28,7 @@ const ProductListItem = ({item}: any) => {
             uri: item.imageUrl,
           }}
         />
-      </TouchableOpacity>
+      </View>
       <View style={styles.infoContainer}>
         <View>
           <Text>asdasd</Text>
@@ -36,7 +39,7 @@ const ProductListItem = ({item}: any) => {
           <Text>Add Order</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    width: '90%',
+    width: 130,
     alignItems: 'center',
     justifyContent: 'center',
     height: 28,
