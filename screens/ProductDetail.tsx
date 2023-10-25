@@ -9,6 +9,7 @@ import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import ProductDetailItem from '../components/ProductDetail/ProductDetailItem';
 import Reviews from '../components/ProductDetail/Reviews';
+import MakeComment from '../components/ProductDetail/MakeComment';
 
 export default function ProductDetail() {
   const route = useRoute();
@@ -19,6 +20,7 @@ export default function ProductDetail() {
       <ScrollView style={{marginBottom: 52}}>
         <ProductDetailItem />
         <Reviews />
+        <MakeComment />
       </ScrollView>
 
       <View style={styles.priceCard}>
