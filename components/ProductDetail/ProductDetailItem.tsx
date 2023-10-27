@@ -8,7 +8,6 @@ export default function ProductDetailItem() {
         style={{
           height: 400,
           resizeMode: 'cover',
-          borderRadius: 12,
           borderRadius: 5,
         }}
         source={{
