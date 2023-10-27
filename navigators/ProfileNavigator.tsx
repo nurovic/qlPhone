@@ -6,8 +6,8 @@ const Tab = createMaterialTopTabNavigator();
 export default function ProfileNavigator() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Dashboard" component={Dsahboard} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
