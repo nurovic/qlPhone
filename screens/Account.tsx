@@ -1,11 +1,8 @@
-import {StyleSheet, Text, Image, View} from 'react-native';
+import {StyleSheet, Image, View} from 'react-native';
 import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import Home from './Rd';
-import Sett from './Rf';
-const Tab = createMaterialTopTabNavigator();
+import ProfileNavigator from '../navigators/ProfileNavigator';
 
-export default function Profil() {
+export default function Account() {
   return (
     <View style={{flex: 1}}>
       <View style={styles.container}>
@@ -21,10 +18,7 @@ export default function Profil() {
           }}
         />
       </View>
-      <Tab.Navigator>
-        <Tab.Screen name="ADAD" component={Home} />
-        <Tab.Screen name="SetASDAStings" component={Sett} />
-      </Tab.Navigator>
+      <ProfileNavigator />
     </View>
   );
 }
@@ -33,6 +27,6 @@ const styles = StyleSheet.create({
   container: {
     height: '40%',
     alignItems: 'center',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 });
