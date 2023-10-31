@@ -9,6 +9,7 @@ import Login from './screens/Login';
 import ProductDetail from './screens/ProductDetail';
 import Reviews from './screens/Reviews';
 import AddProducts from './screens/AddProducts';
+import OwnProducts from './screens/OwnProducts';
 
 
 // const Stack = createStackNavigator();
@@ -28,6 +29,7 @@ function App() {
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
         <Stack.Screen name="Reviews" component={Reviews} />
         <Stack.Screen name="AddProducts" component={AddProducts} />
+        <Stack.Screen name="Own Products" component={OwnProducts} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,0 +1,49 @@
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import React from 'react';
+import OwnerListItem from '../components/OwnerProducts/OwnerListItem.tsx';
+const productList = [
+  {
+    _id: '64c674d23cfa5e847bcd5430',
+    title: 'Seaside Resort',
+    imageUrl:
+      'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
+    review: '1204 Reviews',
+    price: '2321',
+  },
+
+  {
+    _id: '64c674d23cfa5e847bcd5430',
+    title: 'PC',
+    imageUrl:
+      'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
+    review: '14 Reviews',
+    price: '232',
+  },
+];
+export default function OwnProducts() {
+  return (
+    <View style={{margin: 12}}>
+      <FlatList
+        data={productList}
+        renderItem={({item}) => (
+          <View style={styles.listItem}>
+            <OwnerListItem item={item} />
+          </View>
+        )}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  listItem: {
+    flex: 0.49,
+    height: 130,
+    backgroundColor: '#fff',
+    marginBottom: 10,
+    borderRadius: 12,
+    // borderWidth: .3,
+    // borderColor: '#82828214y',
+    marginRight: 2,
+  },
+});

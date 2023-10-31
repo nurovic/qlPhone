@@ -15,7 +15,7 @@ export default function Dashboard() {
     {id: 2, title: 'Add Product', route: 'AddProducts'},
     {id: 2, title: 'Orders', route: 'Order'},
     {id: 2, title: 'Change Password', route: ''},
-    {id: 2, title: 'Own Products', route: ''},
+    {id: 2, title: 'Own Products', route: 'Own Products'},
   ];
   return (
     <ScrollView style={{margin: 12}}>
