@@ -11,7 +11,6 @@ import Reviews from './screens/Reviews';
 import AddProducts from './screens/AddProducts';
 import OwnProducts from './screens/OwnProducts';
 
-
 // const Stack = createStackNavigator();
 
 const Stack = createStackNavigator();
@@ -19,7 +18,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="Home"
           component={TabNavigator}

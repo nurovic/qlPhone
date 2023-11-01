@@ -7,7 +7,7 @@ export default function ReviewListItem() {
 
   const productList = [
     {
-      _id: '64c674d2mnjfa5e841247bcd5430',
+      _id: '64c674d2mnjfa5e841247fbcd5430',
       title: 'Seaside Resort',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
@@ -16,7 +16,7 @@ export default function ReviewListItem() {
     },
 
     {
-      _id: '64c671234d23cfa5e847bcd5430',
+      _id: '64c671234d23cfaa5e847bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
@@ -24,7 +24,7 @@ export default function ReviewListItem() {
       price: '232',
     },
     {
-      _id: '64c674d23cf4a5e847bcd5430',
+      _id: '64c674d23cf4a5e84af37bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
@@ -32,7 +32,7 @@ export default function ReviewListItem() {
       price: '232',
     },
     {
-      _id: '64c674d23cfa15e847bcd5430',
+      _id: '64c674d23cfa15e23847bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
@@ -40,7 +40,7 @@ export default function ReviewListItem() {
       price: '232',
     },
     {
-      _id: '64c674d23cfa25e847bcd5430',
+      _id: '64c674d23cfa25e84517bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
@@ -48,7 +48,7 @@ export default function ReviewListItem() {
       price: '232',
     },
     {
-      _id: '64c674d23cfa5eCA847bcd5430',
+      _id: '64c674d23cfa5eC1A847bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
@@ -56,7 +56,7 @@ export default function ReviewListItem() {
       price: '232',
     },
     {
-      _id: '64c674d23cfaA5e847bcd5430',
+      _id: '64c674d23cfaA5e8471bcd5430',
       title: 'PC',
       imageUrl:
         'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',

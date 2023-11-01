@@ -1,8 +1,24 @@
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Button, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
 import OwnerList from '../components/OwnerProducts/OwnerList';
-
+import HeaderNavigator from '../navigators/HeaderNavigator';
 const productList = [
+  {
+    _id: '64c674d23cfa5e847bcd5430',
+    title: 'Seaside Resort',
+    imageUrl:
+      'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
+    review: '1204 Reviews',
+    price: '2321',
+  },
+  {
+    _id: '64c674d23cfa5e847bcd5430',
+    title: 'Seaside Resort',
+    imageUrl:
+      'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
+    review: '1204 Reviews',
+    price: '2321',
+  },
   {
     _id: '64c674d23cfa5e847bcd5430',
     title: 'Seaside Resort',
@@ -22,8 +38,13 @@ const productList = [
   },
 ];
 export default function OwnProducts() {
+
   return (
     <View style={{margin: 12}}>
+      <HeaderNavigator 
+      title="Product"
+      navigate="Dashboard"
+      />
       <FlatList
         data={productList}
         renderItem={({item}) => (

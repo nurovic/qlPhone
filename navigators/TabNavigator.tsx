@@ -13,6 +13,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarLabelPosition: 'beside-icon',
+        headerShown: false,
         tabBarLabelStyle: {
           fontWeight: '700',
           fontSize: 12,
