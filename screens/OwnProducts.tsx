@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
-import OwnerListItem from '../components/OwnerProducts/OwnerListItem.tsx';
+import OwnerList from '../components/OwnerProducts/OwnerList';
+
 const productList = [
   {
     _id: '64c674d23cfa5e847bcd5430',
@@ -27,7 +28,7 @@ export default function OwnProducts() {
         data={productList}
         renderItem={({item}) => (
           <View style={styles.listItem}>
-            <OwnerListItem item={item} />
+            <OwnerList item={item} />
           </View>
         )}
       />
