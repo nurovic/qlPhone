@@ -11,6 +11,9 @@ const LeftButtonActions = () => {
       title="Edit"
       topLeft={15}
       bottomLeft={15}
+      iconName="edit"
+      iconSize={24}
+      iconColor="#fff"
     />
   );
 };

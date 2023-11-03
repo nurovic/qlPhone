@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-
+import Icon from 'react-native-vector-icons/Feather';
 interface ISweapleButton {
   action: (item?: string) => void;
   buttonBackground: string;
@@ -9,6 +9,9 @@ interface ISweapleButton {
   bottomLeft?: number;
   bottomRight?: number;
   topRight?: number;
+  iconName: string;
+  iconSize: number;
+  iconColor: string;
 }
 
 const SwipeableButton = ({
@@ -19,20 +22,28 @@ const SwipeableButton = ({
   bottomRight,
   topRight,
   buttonBackground,
+  iconName,
+  iconSize,
+  iconColor,
 }: ISweapleButton) => {
   return (
-    <View
+    <TouchableOpacity
       style={styles.buttonContainer(
         buttonBackground,
         topLeft,
         bottomLeft,
         bottomRight,
         topRight,
-      )}>
-      <TouchableOpacity onPress={action}>
-        <Text style={styles.buttonTitle}> {title} </Text>
-      </TouchableOpacity>
-    </View>
+      )}
+      onPress={action}>
+      <Icon
+        style={{marginBottom: 8}}
+        name={iconName}
+        size={iconSize}
+        color={iconColor}
+      />
+      <Text style={styles.buttonTitle}> {title} </Text>
+    </TouchableOpacity>
   );
 };
 
@@ -49,6 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: buttonBackground,
     width: 64,
+    flexDirection: 'column',
     borderBottomLeftRadius: bottomLeft ?? 0,
     borderTopLeftRadius: topLeft ?? 0,
     borderBottomRightRadius: bottomRight ?? 0,

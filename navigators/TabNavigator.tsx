@@ -5,6 +5,8 @@ import Home from '../screens/Home';
 import Account from '../screens/Account';
 import Products from '../screens/Products';
 import Order from '../screens/Order';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -18,12 +20,47 @@ const TabNavigator = () => {
           fontWeight: '700',
           fontSize: 12,
         },
-        tabBarIconStyle: {display: 'none'},
       }}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Order" component={Order} />
-      <Tab.Screen name="Products" component={Products} />
-      <Tab.Screen name="Account" component={Account} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Order"
+        component={Order}
+        options={{
+          tabBarLabel: 'Order',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="basket" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Products"
+        component={Products}
+        options={{
+          tabBarLabel: 'Products',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="tag-text" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={Account}
+        options={{
+          tabBarLabel: 'Account',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };

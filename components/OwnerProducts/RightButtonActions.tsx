@@ -24,6 +24,9 @@ const RightButtonActions = () => {
       title={'Sil'}
       bottomRight={15}
       topRight={15}
+      iconName="trash"
+      iconSize={24}
+      iconColor="#fff"
     />
   );
 };
