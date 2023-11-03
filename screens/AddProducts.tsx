@@ -1,13 +1,18 @@
-
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
+import React from 'react';
+import HeaderNavigator from '../navigators/HeaderNavigator';
 
 export default function AddProducts() {
   return (
-    <View>
+    <SafeAreaView >
+      <HeaderNavigator
+        title="Add Product"
+        backButton={true}
+      />
+
       <Text>AddProducts</Text>
-    </View>
-  )
+    </SafeAreaView>
+  );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

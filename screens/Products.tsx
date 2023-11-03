@@ -3,11 +3,13 @@ import {
   Text,
   RefreshControl,
   ActivityIndicator,
+  SafeAreaView,
   View,
   FlatList,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import ProductListItem from '../components/ProductListItem';
+import HeaderNavigator from '../navigators/HeaderNavigator';
 
 export default function Products() {
   const [refreshing, setRefreshing] = useState(false);
@@ -51,12 +53,14 @@ export default function Products() {
     }, 2000);
   };
   return (
-    <View style={styles.wrapCon}>
+    <SafeAreaView style={styles.wrapCon}>
+      <HeaderNavigator title="Products" backButton={false} />
+
       {refreshing ? <ActivityIndicator /> : null}
       <FlatList
         data={productList}
         numColumns={2}
-        columnWrapperStyle={{ justifyContent: 'space-between' }}
+        columnWrapperStyle={{justifyContent: 'space-between'}}
         keyExtractor={item => item._id}
         refreshControl={
           <RefreshControl
@@ -71,7 +75,7 @@ export default function Products() {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

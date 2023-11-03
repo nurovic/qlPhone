@@ -1,4 +1,4 @@
-import {View, Button, StyleSheet, FlatList} from 'react-native';
+import {View, SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import React from 'react';
 import OwnerList from '../components/OwnerProducts/OwnerList';
 import HeaderNavigator from '../navigators/HeaderNavigator';
@@ -38,13 +38,9 @@ const productList = [
   },
 ];
 export default function OwnProducts() {
-
   return (
-    <View style={{margin: 12}}>
-      <HeaderNavigator 
-      title="Product"
-      navigate="Dashboard"
-      />
+    <SafeAreaView>
+      <HeaderNavigator title="Own Product" backButton={true} />
       <FlatList
         data={productList}
         renderItem={({item}) => (
@@ -53,7 +49,7 @@ export default function OwnProducts() {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -64,8 +60,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginBottom: 10,
     borderRadius: 12,
-    // borderWidth: .3,
-    // borderColor: '#82828214y',
     marginRight: 2,
   },
 });

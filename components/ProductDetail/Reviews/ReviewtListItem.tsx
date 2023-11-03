@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.5,
-    marginBottom: 12
+    marginBottom: 12,
+    margin: 14,
+
   },
 });

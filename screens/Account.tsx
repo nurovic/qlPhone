@@ -1,15 +1,15 @@
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, SafeAreaView, Image, View} from 'react-native';
 import React from 'react';
 import ProfileNavigator from '../navigators/ProfileNavigator';
 
 export default function Account() {
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <Image
           style={{
-            height: 150,
-            width: 150,
+            height: 100,
+            width: 100,
             resizeMode: 'cover',
             borderRadius: 100,
           }}
@@ -19,13 +19,13 @@ export default function Account() {
         />
       </View>
       <ProfileNavigator />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: '40%',
+    height: '25%',
     alignItems: 'center',
     justifyContent: 'center',
   },

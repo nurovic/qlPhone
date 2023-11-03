@@ -1,12 +1,15 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, View, FlatList} from 'react-native';
 import React from 'react';
 import ReviewtListItem from '../components/ProductDetail/Reviews/ReviewtListItem';
+import HeaderNavigator from '../navigators/HeaderNavigator';
 
 export default function Reviews({route}) {
   const reviewsList = route.params;
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <HeaderNavigator title="Reviews" backButton={true} />
+
       <FlatList
         data={reviewsList}
         keyExtractor={item => item._id}
@@ -16,12 +19,8 @@ export default function Reviews({route}) {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    margin: 14,
-  }
-});
+const styles = StyleSheet.create({});

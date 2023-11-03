@@ -2,6 +2,7 @@ import {
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
@@ -10,13 +11,15 @@ import {useRoute} from '@react-navigation/native';
 import ProductDetailItem from '../components/ProductDetail/ProductDetailItem';
 import Reviews from '../components/ProductDetail/Reviews';
 import MakeComment from '../components/ProductDetail/MakeComment';
+import HeaderNavigator from '../navigators/HeaderNavigator';
 
 export default function ProductDetail() {
   const route = useRoute();
   const id = route.params;
   console.log(id, 'product detail pages');
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <HeaderNavigator title="Product Name" backButton={true} />
       <ScrollView style={{marginBottom: 52}}>
         <ProductDetailItem />
         <Reviews />
@@ -29,7 +32,7 @@ export default function ProductDetail() {
           <Text style={{color: 'white'}}>Add Order</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
