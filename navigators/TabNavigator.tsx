@@ -3,10 +3,9 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Account from '../screens/Account';
-import Products from '../screens/Products';
 import Order from '../screens/Order';
+import ProductsDrawer from '../screens/ProductsDrawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +42,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Products"
-        component={Products}
+        component={ProductsDrawer}
         options={{
           tabBarLabel: 'Products',
           tabBarIcon: ({color, size}) => (
