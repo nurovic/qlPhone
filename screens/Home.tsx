@@ -1,4 +1,4 @@
-import {Button, View, Text, SafeAreaView} from 'react-native';
+import {Button, View, Text,  SafeAreaView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import HeaderNavigator from '../navigators/HeaderNavigator';
@@ -21,14 +21,16 @@ export default function Home() {
   return (
     <SafeAreaView>
       <HeaderNavigator title="Home" backButton={false} />
-      {data.continents?.map(item => 
+      {data?.continents?.map(item => 
       (<Text>{item.name}</Text>)
       )}
       <Icon name="facebook" size={25} />
       <Button
         title="Go to Profile"
-        onPress={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Login')}
       />
+
+
     </SafeAreaView>
   );
 }

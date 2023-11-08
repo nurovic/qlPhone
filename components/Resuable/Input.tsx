@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {TextInput} from 'react-native';
 import React from 'react';
 
 export default function Input({
@@ -7,7 +7,8 @@ export default function Input({
   handleChangeField,
   focus,
   onBlur,
-  autoCorrect
+  autoCorrect,
+  secureTextEntry,
 }: any) {
   return (
     <TextInput
@@ -19,8 +20,7 @@ export default function Input({
       autoCapitalize="none"
       autoCorrect={autoCorrect}
       style={{flex: 1}}
+      secureTextEntry={secureTextEntry}
     />
   );
 }
-
-const styles = StyleSheet.create({});
