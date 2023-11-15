@@ -2,17 +2,16 @@ import {StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-export default function OrderListItem({orderList}) {
-  console.log(orderList)
+export default function OrderListItem({orderItem}) {
   const navigation = useNavigation();
-
+  const {product, orderCount} = orderItem?.item;
   const handleOrder = (type: number) => {
     console.log(type);
   };
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('ProductDetail', '2')}
+        onPress={() => navigation.navigate('ProductDetail', product._id)}
         style={styles.productContainer}>
         <Image
           style={{
@@ -28,7 +27,7 @@ export default function OrderListItem({orderList}) {
         />
         <View style={{marginLeft: 8}}>
           <Text style={{fontWeight: 'bold', fontSize: 14}}>
-            PlayStation 5 With Spider-Man
+            {product.productName}
           </Text>
         </View>
       </TouchableOpacity>
@@ -39,14 +38,16 @@ export default function OrderListItem({orderList}) {
             onPress={() => handleOrder(1)}>
             -
           </Text>
-          <Text>2</Text>
+          <Text>{orderCount}</Text>
           <Text
             style={{color: 'orange', fontWeight: 800}}
             onPress={() => handleOrder(2)}>
             +
           </Text>
         </View>
-        <Text style={{fontWeight: 600, fontSize: 13}}>12.000.00 ₺</Text>
+        <Text style={{fontWeight: 600, fontSize: 13}}>
+          {product?.price.toLocaleString('tr')} ₺
+        </Text>
       </View>
     </View>
   );
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   container: {
+    padding: 12,
     marginBottom: 14,
     paddingBottom: 14,
     borderBottomWidth: 0.5,

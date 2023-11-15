@@ -6,12 +6,12 @@ import {useQuery} from '@apollo/client';
 import {GET_ORDER_CARD} from '../graphql/Query/orderCard';
 export default function Order() {
   const {error, loading, data, refetch} = useQuery(GET_ORDER_CARD);
-
+  console.log(data, ' DAt');
   if (loading) return <Text> Loading. . .</Text>;
   return (
     <SafeAreaView>
       <HeaderNavigator title="Order" backButton={true} />
-      <OrderList orderList={data} />
+      <OrderList orderList={data?.getOrderCard} />
     </SafeAreaView>
   );
 }

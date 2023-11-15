@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import {gql} from '@apollo/client';
 
 const GET_ORDER_CARD = gql`
   query getOrderCard {
@@ -6,8 +6,12 @@ const GET_ORDER_CARD = gql`
       amount
       piece
       product {
+        orderCount
         _id
         product {
+          _id
+          price
+          productName
           user {
             name
           }
@@ -19,4 +23,4 @@ const GET_ORDER_CARD = gql`
   }
 `;
 
-export { GET_ORDER_CARD };
+export {GET_ORDER_CARD};
