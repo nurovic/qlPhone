@@ -1,37 +1,22 @@
 import {
   StyleSheet,
-  Text,
   RefreshControl,
   ActivityIndicator,
   SafeAreaView,
   View,
+  Text,
   FlatList,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import ProductListItem from '../components/ProductListItem';
 import HeaderNavigator from '../navigators/HeaderNavigator';
+import {GET_PRODUCTS} from '../graphql/Query/products';
+import {useQuery} from '@apollo/client';
 
 export default function Products() {
   const [refreshing, setRefreshing] = useState(false);
-  const productList = [
-    {
-      _id: '64c674d23cfa5e847bcd5430',
-      title: 'Seaside Resort',
-      imageUrl:
-        'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
-      review: '1204 Reviews',
-      price: '2321',
-    },
+  const {error, loading, data} = useQuery(GET_PRODUCTS);
 
-    {
-      _id: '64c674d23cfa5e847bcd5430',
-      title: 'PC',
-      imageUrl:
-        'https://d326fntlu7tb1e.cloudfront.net/uploads/4fdc30c2-08c5-4bca-b05c-d8b8a60b020f-luxury1.webp',
-      review: '14 Reviews',
-      price: '232',
-    },
-  ];
   useEffect(() => {
     setTimeout(() => {
       console.log('useEffect');
@@ -41,24 +26,18 @@ export default function Products() {
   const onRefresh = () => {
     setTimeout(() => {
       console.log('onRefresh');
-      setRefreshing(false);
-      productList.push({
-        _id: '64c674d23cfa5e847bcd5430',
-        title: 'PC',
-        imageUrl:
-          'https://d326fntlu7tb1e.cloudfront.net/uploads/f5cae706-9e63-4a7d-9fdd-f63f34b93f37-seaside.jpeg',
-        review: '14 Reviews',
-        price: '232',
-      });
     }, 2000);
   };
+
+  if (loading) return <Text> Loading. . .</Text>;
+
   return (
     <SafeAreaView style={styles.wrapCon}>
       <HeaderNavigator title="Products" backButton={false} />
 
       {refreshing ? <ActivityIndicator /> : null}
       <FlatList
-        data={productList}
+        data={data?.products}
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between'}}
         keyExtractor={item => item._id}

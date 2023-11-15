@@ -11,6 +11,8 @@ import * as Yup from 'yup';
 import ResuableInput from '../components/Resuable/Input';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
+import {useMutation} from '@apollo/client';
+import {LogIn} from '../graphql/Mutations/auth';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required('Required'),
@@ -18,18 +20,25 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  const [loginPost, {data, loading, error}] = useMutation(LogIn);
+
   const navigation = useNavigation();
+
   const handleComment = async values => {
-    // await AsyncStorage.removeItem('Token');
-    await AsyncStorage.setItem('Token', values.email);
+    const res = await loginPost({
+      variables: values,
+    });
+    const token = res.data?.signin?.token;
+    await AsyncStorage.setItem('token', token);
     navigation.replace('Home');
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Formik
         initialValues={{
-          email: 'MERT',
-          password: 'Nurovic',
+          email: 'mertcan@gmail.com',
+          password: 'mertcan',
         }}
         validationSchema={validationSchema}
         onSubmit={(values, {resetForm}) => {

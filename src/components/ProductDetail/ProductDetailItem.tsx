@@ -1,7 +1,7 @@
 import {StyleSheet, Text, Image, View} from 'react-native';
 import React from 'react';
 
-export default function ProductDetailItem() {
+export default function ProductDetailItem({data}) {
   return (
     <View>
       <Image
@@ -15,10 +15,12 @@ export default function ProductDetailItem() {
         }}
       />
       <View style={styles.productInfoContainer}>
-        <Text style={{fontWeight: 'bold', fontSize: 16}}>MACBOOK PRO 13'</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 16}}>
+          {' '}
+          {data?.productName}{' '}
+        </Text>
         <Text style={{fontWeight: 'medium', fontSize: 13, marginTop: 5}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium
-          animi eos eum hic consequatur itaque. Quos dicta quasi enim rerum.{' '}
+          {data?.description}
         </Text>
         <Text style={{fontWeight: 'regular', fontSize: 14, marginTop: 5}}>
           (2) Reviews{' '}

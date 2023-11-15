@@ -11,23 +11,33 @@ import {useRoute} from '@react-navigation/native';
 import ProductDetailItem from '../components/ProductDetail/ProductDetailItem';
 import Reviews from '../components/ProductDetail/Reviews';
 import MakeComment from '../components/ProductDetail/MakeComment';
+import {useQuery} from '@apollo/client';
 import HeaderNavigator from '../navigators/HeaderNavigator';
-
+import {GET_PRODUCT_ID} from '../graphql/Query/products';
 export default function ProductDetail() {
   const route = useRoute();
   const id = route.params;
-  console.log(id, 'product detail pages');
+  const {error, loading, data, refetch} = useQuery(GET_PRODUCT_ID, {
+    variables: {id},
+  });
+  // const {productName} = data?.productById;
+
+  if (loading) return <Text> Loading. . .</Text>;
+
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderNavigator title="Product Name" backButton={true} />
+      <HeaderNavigator
+        title={data?.productById?.productName}
+        backButton={true}
+      />
       <ScrollView style={{marginBottom: 52}}>
-        <ProductDetailItem />
+        <ProductDetailItem data={data?.productById} />
         <Reviews />
         <MakeComment />
       </ScrollView>
 
       <View style={styles.priceCard}>
-        <Text>2,23123 TL</Text>
+        <Text>2,23123 TL </Text>
         <TouchableOpacity style={styles.button}>
           <Text style={{color: 'white'}}>Add Order</Text>
         </TouchableOpacity>

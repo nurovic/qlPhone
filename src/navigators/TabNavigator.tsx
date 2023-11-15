@@ -15,8 +15,7 @@ const TabNavigator = () => {
   const [checkUser, setCheckUser] = useState<boolean>(false);
 
   const checkToken = async () => {
-
-    const token = await AsyncStorage.getItem('Token');
+    const token = await AsyncStorage.getItem('token');
     console.log(token);
     if (token !== null) {
       setCheckUser(true);

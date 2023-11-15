@@ -2,7 +2,8 @@ import {StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-export default function OrderListItem() {
+export default function OrderListItem({orderList}) {
+  console.log(orderList)
   const navigation = useNavigation();
 
   const handleOrder = (type: number) => {
