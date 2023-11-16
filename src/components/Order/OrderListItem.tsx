@@ -1,13 +1,32 @@
 import {StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {OrderCardUpdate} from '../../graphql/Mutations/order';
+import {useMutation} from '@apollo/client';
 
-export default function OrderListItem({orderItem}) {
+export default function OrderListItem({orderItem, refetchQuery}: any) {
   const navigation = useNavigation();
   const {product, orderCount} = orderItem?.item;
-  const handleOrder = (type: number) => {
-    console.log(type);
+  const [updateOrderCardProduct] = useMutation(OrderCardUpdate, {
+    onCompleted: () => {
+      // Mutasyon tamamlandığında useQuery'i yeniden çağır
+      refetchQuery();
+    },
+  });
+
+  const handleOrder = async (type: boolean, id: string) => {
+    try {
+      await updateOrderCardProduct({
+        variables: {
+          productId: id,
+          count: type,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -35,13 +54,13 @@ export default function OrderListItem({orderItem}) {
         <View style={styles.orderButtons}>
           <Text
             style={{color: 'orange', fontWeight: 800}}
-            onPress={() => handleOrder(1)}>
+            onPress={() => handleOrder(false, orderItem.item._id)}>
             -
           </Text>
           <Text>{orderCount}</Text>
           <Text
             style={{color: 'orange', fontWeight: 800}}
-            onPress={() => handleOrder(2)}>
+            onPress={() => handleOrder(true, orderItem.item._id)}>
             +
           </Text>
         </View>

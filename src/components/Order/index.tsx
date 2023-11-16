@@ -1,7 +1,7 @@
 import {View, FlatList, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import OrderListItem from './OrderListItem';
-export default function index({orderList}) {
+export default function index({orderList, refetchQuery}) {
   const completeOrder = () => {
     console.log('completed Order');
   };
@@ -10,7 +10,7 @@ export default function index({orderList}) {
     <View>
       <FlatList
         data={orderList.product}
-        renderItem={item => <OrderListItem orderItem={item} />}
+        renderItem={item => <OrderListItem orderItem={item} refetchQuery={refetchQuery} />}
       />
       <View style={styles.infoContainer}>
         <View style={styles.infoDetailContainer}>
@@ -18,7 +18,7 @@ export default function index({orderList}) {
             Selected Products ({orderList.piece})
           </Text>
           <Text style={{fontWeight: 600}}>
-            {orderList?.amount.toLocaleString('tr')} ₺
+            {orderList?.amount} ₺
           </Text>
         </View>
 

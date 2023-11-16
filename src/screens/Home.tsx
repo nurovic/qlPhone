@@ -31,9 +31,10 @@ export const CONTINENT_QUERY = gql`
 export default function Home() {
   const {data, loading} = useQuery(CONTINENT_QUERY);
   const navigation = useNavigation();
-  // const handleComment = async values => {
-  //   await AsyncStorage.removeItem('token');
-  // };
+  const handleComment = async values => {
+    await AsyncStorage.removeItem('token');
+  };
+  
   return (
     <SafeAreaView>
       <ScrollView>
